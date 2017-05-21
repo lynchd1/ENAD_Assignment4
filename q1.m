@@ -1,4 +1,4 @@
-%Question 1 maths - Brian changed a resister needs to be updated
+%Question 1 maths
 clear 
 clc
 format shortEng
@@ -9,8 +9,8 @@ A1 = [  0.1,            -100             ;
         100*10^(-9),    -100*10^(-6)    ]
 A2 = [  0.01,           -20              ;
         50*10^(-9),     -100*10^(-6)    ]
-A3 = [  0.5,            -25*10^3         ;
-        20*10^(-6),     -1              ]
+A3 = [  0.5,            -25         ;
+        20*10^(-6),     -1 * 10^(-3)              ]
 
 % Combined stages
 A = A1*A2*A3;

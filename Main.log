@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (MiKTeX 2.9)  (format=lualatex 2017.4.30)  21 MAY 2017 18:28
+This is LuaTeX, Version 0.95.0 (MiKTeX 2.9)  (format=lualatex 2017.4.30)  21 MAY 2017 21:26
  restricted system commands enabled.
 **Main.tex
 (./Main.tex
@@ -136,37 +136,327 @@ Package: fullpage 1999/02/23 1.1 (PWD)
 ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/tools/enumerate.sty"
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks22
-) (./Main.aux (./Question1.aux) (./Question2.aux) (./Question3.aux) (./Question
-4.aux)
-(./Question5.aux))
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/frontendlayer/tikz.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/basiclayer/pgf.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/utilities/pgfrcs.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfutil-common.te
+x"
+\pgfutil@everybye=\toks23
+\pgfutil@tempdima=\dimen114
+\pgfutil@tempdimb=\dimen115
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex"))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfutil-latex.def
+"
+\pgfutil@abb=\box30
+ ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/ms/everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfrcs.code.tex"
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+ ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/basiclayer/pgfcore.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/systemlayer/pgfsys.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgfsys.code.tex
+"
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+ ("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfkeys.code.tex
+"
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex"
+\pgfkeys@tmptoks=\toks26
+))
+\pgf@x=\dimen116
+\pgf@y=\dimen117
+\pgf@xa=\dimen118
+\pgf@ya=\dimen119
+\pgf@xb=\dimen120
+\pgf@yb=\dimen121
+\pgf@xc=\dimen122
+\pgf@yc=\dimen123
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count101
+\c@pgf@countb=\count102
+\c@pgf@countc=\count103
+\c@pgf@countd=\count104
+\t@pgf@toka=\toks27
+\t@pgf@tokb=\toks28
+\t@pgf@tokc=\toks29
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-luatex.def
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgfsys-luatex.d
+ef"
+File: pgfsys-luatex.def 2014/10/11  (rcs-revision 1.35)
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def"
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+code.tex"
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count105
+\pgfsyssoftpath@bigbuffer@items=\count106
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/xcolor/xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/00miktex/color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcore.code.tex
+"
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+ ("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmath.code.tex"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathcalc.code.tex"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathutil.code.tex") ("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen124
+\pgfmath@count=\count107
+\pgfmath@box=\box31
+\pgfmath@toks=\toks30
+\pgfmath@stack@operand=\toks31
+\pgfmath@stack@operation=\toks32
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.code.
+tex"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex")
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex")))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count108
+))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex"
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen125
+\pgf@picmaxx=\dimen126
+\pgf@picminy=\dimen127
+\pgf@picmaxy=\dimen128
+\pgf@pathminx=\dimen129
+\pgf@pathmaxx=\dimen130
+\pgf@pathminy=\dimen131
+\pgf@pathmaxy=\dimen132
+\pgf@xx=\dimen133
+\pgf@xy=\dimen134
+\pgf@yx=\dimen135
+\pgf@yy=\dimen136
+\pgf@zx=\dimen137
+\pgf@zy=\dimen138
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorepathconst
+ruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen139
+\pgf@path@lasty=\dimen140
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorepathusage
+.code.tex"
+File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
+\pgf@shorten@end@additional=\dimen141
+\pgf@shorten@start@additional=\dimen142
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorescopes.co
+de.tex"
+File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
+\pgfpic=\box32
+\pgf@hbox=\box33
+\pgf@layerbox@main=\box34
+\pgf@picture@serial@count=\count109
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoregraphicst
+ate.code.tex"
+File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
+\pgflinewidth=\dimen143
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoretransform
+ations.code.tex"
+File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
+\pgf@pt@x=\dimen144
+\pgf@pt@y=\dimen145
+\pgf@pt@temp=\dimen146
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex"
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorearrows.co
+de.tex"
+File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
+\pgfarrowsep=\dimen147
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex"
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen148
+\pgf@sys@shading@range@num=\count110
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex"
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoreexternal.
+code.tex"
+File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
+\pgfexternal@startupbox=\box35
+))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex"
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex"
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex"
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/modules/pgfmoduleshapes.cod
+e.tex"
+File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
+\pgfnodeparttextbox=\box36
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex"
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen149
+\pgf@nodesepend=\dimen150
+)
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/utilities/pgffor.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/utilities/pgfkeys.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgfkeys.code.tex"
+)) ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/pgf/math/pgfmath.sty"
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmath.code.tex"))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/utilities/pgffor.code.tex"
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/math/pgfmath.code.tex")
+\pgffor@iter=\dimen151
+\pgffor@skip=\dimen152
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex"
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count111
+\pgfplotmarksize=\dimen153
+)
+\tikz@lastx=\dimen154
+\tikz@lasty=\dimen155
+\tikz@lastxsaved=\dimen156
+\tikz@lastysaved=\dimen157
+\tikzleveldistance=\dimen158
+\tikzsiblingdistance=\dimen159
+\tikz@figbox=\box37
+\tikz@figbox@bg=\box38
+\tikz@tempbox=\box39
+\tikz@tempbox@bg=\box40
+\tikztreelevel=\count112
+\tikznumberofchildren=\count113
+\tikznumberofcurrentchild=\count114
+\tikz@fig@count=\count115
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex"
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count116
+\pgfmatrixcurrentcolumn=\count117
+\pgf@matrix@numberofcolumns=\count118
+)
+\tikz@expandcount=\count119
+
+("C:/Program Files (x86)/MiKTeX 2.9/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+))) (./Main.aux (./Question1.aux)
+(./Question2.aux) (./Question3.aux) (./Question4.aux) (./Question5.aux))
 \openout1 = Main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 ("C:/Program Files (x86)/MiKTeX 2.9/tex/context/base/supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen114
-\scratchbox=\box30
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen115
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count120
+\scratchdimen=\dimen160
+\scratchbox=\box41
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen161
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks36
 ) ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -204,7 +494,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 Package: luatex-loader 2016/05/16 v0.6 Lua module loader (HO)
 
 (C:/Program Files (x86)/MiKTeX 2.9/scripts/oberdiek/oberdiek.luatex.lua))
-\pdftexcmds@toks=\toks25
+\pdftexcmds@toks=\toks37
 )
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
 8.
@@ -213,12 +503,13 @@ Package grfext Info: Graphics extension search list:
 ,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+ABD: EveryShipout initializing macros
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 
 ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/amsfonts/umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 ("C:/Program Files (x86)/MiKTeX 2.9/tex/latex/amsfonts/umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -247,7 +538,7 @@ Package epstopdf Info: Source file: <./figs/q3bode.eps>
 to.pdf ./figs/q3bode.eps>
 (epstopdf)             \includegraphics on input line 128.
 Package epstopdf Info: Output file is already uptodate.
-<./figs/q3bode-eps-converted-to.pdf, id=24, 608.2725pt x 429.605pt>
+<./figs/q3bode-eps-converted-to.pdf, id=27, 608.2725pt x 429.605pt>
 File: ./figs/q3bode-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./figs/q3bode-eps-converted-to.pdf>
@@ -263,19 +554,28 @@ Overfull \hbox (3.23537pt too wide) in paragraph at lines 128--129
 \openout2 = Question4.aux
  (./Question4.tex)
 \openout2 = Question5.aux
- (./Question5.tex)
-[5] (./Main.aux (./Question1.aux) (./Question2.aux) (./Question3.aux)
+ (./Question5.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
+
+ []
+
+) [5] (./Main.aux (./Question1.aux) (./Question2.aux) (./Question3.aux)
 (./Question4.aux) (./Question5.aux)))
 
 Here is how much of LuaTeX's memory you used:
- 2872 strings out of 495118
- 100000,106986 words of node,token memory allocated
- 3471 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 443 glue, 1 kern, 42 glue_spec, 1 write nodes
-   avail lists: 2:21,3:99,4:8,5:204,6:1092,7:641,8:109,9:712,10:7,11:59
- 6057 multiletter control sequences out of 65536+200000
+ 12945 strings out of 495118
+ 100000,319454 words of node,token memory allocated
+ 4241 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 553 glue, 1 kern, 42 glue_spec, 1 write nodes
+   avail lists: 2:22,3:170,4:22,5:204,6:1092,7:531,8:129,9:712,10:7,11:59
+ 15749 multiletter control sequences out of 65536+200000
  54 fonts using 1575463 bytes
- 37i,14n,26p,255b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,14n,55p,384b,616s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
@@ -289,9 +589,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/MiKTeX 2.9
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 /public/amsfonts/symbols/msbm10.pfb>
-Output written on Main.pdf (5 pages, 161510 bytes).
+Output written on Main.pdf (5 pages, 166712 bytes).
 
-PDF statistics: 77 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

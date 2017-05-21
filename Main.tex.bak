@@ -7,6 +7,10 @@
 \usepackage{float}
 \usepackage{fullpage}
 \usepackage{enumerate}
+\usepackage{tikz}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
             
 \graphicspath{{./figs/}}
 

@@ -1,0 +1,33 @@
+% Question 5
+
+\def \Ri{500 \; \Omega}
+\def \Rii{4  k\Omega}
+\def \Ci{40 \mu F}
+\def \Cii{10 \mu F}
+Assuming an ideal op-amp, meaning virtual short circuit condition is true ($v_p = v_n = 0$) 
+and no current flows into the non-inverting and inverting terminals of the op-amp.\\
+
+Circuit in transformed s-domain is: \\
+
+%INSERT DIAGRAM HERE
+INSERT DIAGRAM HERE
+
+Using KCL at node \circled{1}: $\Sigma I_{out} = 0$
+\begin{align*}
+&\frac{V_P-V_I}{\frac{1}{sC_1} + R_1 } + \frac{V_p - V_o}{\frac{1}{C_2s}||R_2} = 0
+\\
+\implies & \frac{-V_I}{\frac{R_1C_1s + 1}{sC_1}} + \frac{- V_o}{\frac{R_2}{C_2R_2s + 1}} = 0
+\\
+\implies & \frac{V_o (C_2R_2s + 1)}{R_2} = -\frac{V_I(C_1s)}{R_1C_1s+1}
+\\
+\implies & \frac{V_o}{V_I} = - \frac{R_2C_1s}{(R_1C_1s+1)(C_2R_2s+1)}
+\\
+\implies & H(s) = - \frac{R_2C_1s}{R_1C_1R_2C_2s^2 + (R_1C_1 + R_2C_2)s + 1}
+\\
+\implies & H(s) = - \frac{\frac{1}{R_1C_2}s}{s^2 + \frac{R_1C_1 + R_2C_2}{R_1C_1R_2C_2}s + \frac{1}{R_1C_1R_2C_2}}
+\\
+\implies & H(s) = - \frac{\frac{1}{(\Ri)(\Cii)}s}{s^2 + 
+\frac{(\Ri)(\Ci)+(\Rii)(\Cii)}{(\Ri)(\Ci)(\Rii)(\Cii)}s + \frac{1}{(\Ri)(\Ci)(\Rii)(\Cii)} }
+\\
+\implies &H(s) = \frac{-200s}{s^2 + 75s + 1250}
+\end{align*}

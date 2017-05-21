@@ -13,11 +13,11 @@
 
 %Final A Matrix
 \def \Aoneone{457 		\times 10^{-6}}
-\def \Aonetwo{22.885}
+\def \Aonetwo{22.885	\times 10^{-3}}
 \def \Atwoone{457		\times 10^{-12}}
-\def \Atwotwo{22.885 	\times 10^{-6}}
+\def \Atwotwo{22.885 	\times 10^{-9}}
 
-\def \Gtot{16.5143}
+\def \Gtot{1.8496 \times 10^3}
 
 \begin{enumerate}
 	
@@ -110,8 +110,8 @@
 	A &= A_1 A_2 A_3
 	\\
 	&= \left[ \begin{matrix}
-	\Aoneone 			& \Aonetwo \; \Omega \\ 
-	\Atwoone \; \mho \	& \Atwotwo
+	\Aoneone 			& -\Aonetwo \; \Omega \\ 
+	\Atwoone \; \mho \	& -\Atwotwo
 	\end{matrix}  \right] 
 	\end{align*}
 	
@@ -126,7 +126,9 @@
 	can be used here.
 	
 	\begin{align*}
-	\frac{v_L}{v_s} &= \frac{R_L}{(a_{11} + a_{21}R_s)R_L + a_{12} + a_{22}R_s}
+	G &= \frac{v_L}{v_s}
+	\\
+	&= \frac{R_L}{(a_{11} + a_{21}R_s)R_L + a_{12} + a_{22}R_s}
 	\\
 	&= \frac{\RL}{(\Aoneone + (\Atwoone)(\Rs))(\RL) + \Aonetwo + (\Atwotwo)(\Rs)}
 	\\
