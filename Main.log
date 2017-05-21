@@ -1,4 +1,4 @@
-This is LuaTeX, Version 0.95.0 (MiKTeX 2.9)  (format=lualatex 2017.4.30)  17 MAY 2017 15:38
+This is LuaTeX, Version 0.95.0 (MiKTeX 2.9)  (format=lualatex 2017.4.30)  21 MAY 2017 18:10
  restricted system commands enabled.
 **Main.tex
 (./Main.tex
@@ -232,38 +232,66 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 (./Question2.tex)
 \openout2 = Question3.aux
- (./Question3.tex)
+ (./Question3.tex [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
+
+ []
+
+Package epstopdf Info: Source file: <./figs/q3bode.eps>
+(epstopdf)                    date: 2017-05-21 18:08:42
+(epstopdf)                    size: 38330 bytes
+(epstopdf)             Output file: <./figs/q3bode-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-05-21 18:08:44
+(epstopdf)                    size: 15084 bytes
+(epstopdf)             Command: <epstopdf --outfile=./figs/q3bode-eps-converted-
+to.pdf ./figs/q3bode.eps>
+(epstopdf)             \includegraphics on input line 128.
+Package epstopdf Info: Output file is already uptodate.
+<./figs/q3bode-eps-converted-to.pdf, id=24, 608.2725pt x 429.605pt>
+File: ./figs/q3bode-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./figs/q3bode-eps-converted-to.pdf>
+Package luatex.def Info: ./figs/q3bode-eps-converted-to.pdf used on input line 1
+28.
+(luatex.def)             Requested size: 456.20326pt x 322.20296pt.
+
+Overfull \hbox (3.23537pt too wide) in paragraph at lines 128--129
+ [] 
+ []
+
+[4<./figs/q3bode-eps-converted-to.pdf>])
 \openout2 = Question4.aux
  (./Question4.tex)
 \openout2 = Question5.aux
  (./Question5.tex)
-[2] (./Main.aux (./Question1.aux) (./Question2.aux) (./Question3.aux)
+[5] (./Main.aux (./Question1.aux) (./Question2.aux) (./Question3.aux)
 (./Question4.aux) (./Question5.aux)))
 
 Here is how much of LuaTeX's memory you used:
- 2778 strings out of 495118
+ 2872 strings out of 495118
  100000,106986 words of node,token memory allocated
- 1329 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 137 glue, 1 kern, 42 glue_spec, 1 write nodes
-   avail lists: 2:21,3:63,4:8,5:157,6:1071,7:878,8:79,9:575,10:7,11:59
- 6039 multiletter control sequences out of 65536+200000
- 51 fonts using 1488775 bytes
- 37i,14n,24p,255b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files 
-(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Main.pdf (2 pages, 121413 bytes).
+ 3373 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 429 glue, 1 kern, 42 glue_spec, 1 write nodes
+   avail lists: 2:21,3:92,4:8,5:201,6:1071,7:614,8:103,9:697,10:7,11:59
+ 6057 multiletter control sequences out of 65536+200000
+ 54 fonts using 1575463 bytes
+ 37i,14n,26p,255b,460s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
+ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
+am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/amsfonts/symbols/msbm10.pfb>
+Output written on Main.pdf (5 pages, 161261 bytes).
 
-PDF statistics: 57 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

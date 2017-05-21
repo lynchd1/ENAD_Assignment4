@@ -17,6 +17,8 @@
 \def \Atwoone{457		\times 10^{-12}}
 \def \Atwotwo{22.885 	\times 10^{-6}}
 
+\def \Gtot{16.5143}
+
 \begin{enumerate}
 	
 	%Part a
@@ -112,5 +114,24 @@
 	\Atwoone \; \mho \	& \Atwotwo
 	\end{matrix}  \right] 
 	\end{align*}
+	
+	Now the circuit can be modelled like this:
+	
+	%INSERT DIAGRAM HERE
+	INSERT DIAGRAM HERE
+	
+	Using Table 18.2 from the formula sheet, the formula
+	
+	$$ \frac{V_2}{V_g} = \frac{\mathbf{Z}_L}{(a_{11} + a_{21}\mathbf{Z}_g)\mathbf{Z}_L + a_{12} + a_{22}\mathbf{Z}_g} $$
+	can be used here.
+	
+	\begin{align*}
+	\frac{v_L}{v_s} &= \frac{R_L}{(a_{11} + a_{21}R_s)R_L + a_{12} + a_{22}R_s}
+	\\
+	&= \frac{\RL}{(\Aoneone + (\Atwoone)(\Rs))(\RL) + \Aonetwo + (\Atwotwo)(\Rs)}
+	\\
+	&= \Gtot
+	\end{align*}
+	
 	}
 \end{enumerate}
