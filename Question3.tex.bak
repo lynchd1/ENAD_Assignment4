@@ -122,8 +122,21 @@
 	
 	%Part c
 	\item{
-	
+	\text{}
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.75]{q3bode}
+	\end{center}
+	\end{figure}
 	}
+	\begin{align*}
+	6.24 \times 10^3 \; rad/s &= \frac{6.24 \times 10^3}{2\pi} \; Hz
+	\\
+	&= 993.127 \; Hz
+	\\
+	&\approx 1000 \; Hz
+	\end{align*}
+	Therefore, this transfer function satisfies the specifications.
 	
 	
 \end{enumerate}

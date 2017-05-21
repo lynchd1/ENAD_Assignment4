@@ -6,7 +6,7 @@
 \def \Ritwo{200		\times 10^3}
 \def \Rotwo{2		\times 10^3}
 \def \Rithree{25	\times 10^3}
-\def \Rothree{50	\times 10^3}
+\def \Rothree{50}
 \def \Aone{10}
 \def \Atwo{100}
 \def \Athree{2}
@@ -92,19 +92,19 @@
 	A_1 &= 
 	\left[ \begin{matrix}
 	\frac{1}{\Aone} 			& -\frac{\Roone}{\Aone} \\[6pt] 
-	\frac{1}{\Aone \Rione }		& -\frac{\Roone}{\Aone \Rione}
+	\frac{1}{(\Aone) (\Rione) }	& -\frac{\Roone}{(\Aone) (\Rione)}
 	\end{matrix}  \right] 
 	\\
 	A_2 &= 
 	\left[ \begin{matrix}
 	\frac{1}{\Atwo} 			& -\frac{\Rotwo}{\Atwo} \\[6pt] 
-	\frac{1}{\Atwo \Ritwo }		& -\frac{\Rotwo}{\Atwo \Ritwo}
+	\frac{1}{(\Atwo) (\Ritwo) }	& -\frac{\Rotwo}{(\Atwo) (\Ritwo)}
 	\end{matrix}  \right] 
 	\\
 	A_3 &= 
 	\left[ \begin{matrix}
-	\frac{1}{\Athree} 			& -\frac{\Rothree}{\Athree} \\[6pt] 
-	\frac{1}{\Athree \Rithree }	& -\frac{\Rothree}{\Athree \Rithree}
+	\frac{1}{\Athree} 				& -\frac{\Rothree}{\Athree} \\[6pt] 
+	\frac{1}{(\Athree) (\Rithree) }	& -\frac{\Rothree}{(\Athree) (\Rithree)}
 	\end{matrix}  \right] 
 	\\
 	A &= A_1 A_2 A_3
