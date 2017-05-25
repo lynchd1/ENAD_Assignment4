@@ -13,7 +13,7 @@
 			\begin{figure}[H]
 				\centering
 				\begin{circuitikz}
-					\draw (0,3) to[american voltage source, l_=$V_{Th}$] (0,0);
+					\draw (0,3) to[american voltage source, l_=$v_{Th}$] (0,0);
 					\draw (0,3) to[R=$R_{Th}$, -o] (3,3) -- 
 						(4,3) to[R = $R_L$] (4,0)
 							to[short, -o] (3,0) -- (0,0);
@@ -35,34 +35,54 @@
 		\item{
 			Maximum power transferred to load can be found from the formula:
 			\begin{equation*}
-				P_{L \ max} = \frac{V_L^2}{R_L}
+				P_{L \ max} = \frac{v_L^2}{R_L}
 			\end{equation*}
 
-			For the Thevenin equivalent circuit, $V_L$, the voltage drop across the load, can be found by voltage division. However, since $R_L = R_{Th}$, we know half of $V_{Th}$ will drop across $R_L$, the other half dropped across $R_{Th}$.
+			For the Thevenin equivalent circuit, $v_L$, the voltage drop across the load, can be found by voltage division. However, since $R_L = R_{Th}$, we know half of $v_{Th}$ will drop across $R_L$, the other half dropped across $R_{Th}$.
 			\\ \\
 			Now by the formula sheet:
 			\begin{align*}
-				V_{Th} &= \frac{V_g}{a_{11} + a_{21} \cdot R_g} \\
+				v_{Th} &= \frac{v_g}{a_{11} + a_{21} \cdot R_g} \\
 				&= \frac{10}{4 + 0.5 \cdot 2} \\
 				&= 2 \ \text{V}
 			\end{align*}
 			\begin{align*}
-				\therefore V_L &= \frac{V_{Th}}{2} \\
+				\therefore v_L &= \frac{v_{Th}}{2} \\
 				&= 1 \ \text{V}
 			\end{align*}
 			\begin{align*}
 				\therefore P_{L \ max} &= \frac{1^2}{2.6} \\
 				&= 384.62 \ \text{mW}
 			\end{align*}
-			The maximum power delivered to the load is 384.62 mW.
+			The maximum power delivered to the load is $P_{L \ max} = 384.62$ mW.
 			\\
 		}
 		
 		%Part iii
 		\item{
-		
+			From (2a ii), $R_L = 2.6 \ \Omega \quad \therefore v_L = 1 \ \text{V}$. \\
+			From this, $i_L$ can be found by Ohm's law:
+			\begin{align*}
+				i_L &= \frac{v_L}{R_L} \\
+				&= \frac{1}{2.6} \\
+				&= 384.62 \ \text{mA}
+			\end{align*}
+			Now by the formula sheet:
+			\begin{equation*}
+				\frac{i_2}{i_1} = \frac{-1}{a_{21} \cdot R_L + a_{22}}
+			\end{equation*}
+			And from this, $i_1$ can be found from $i_L$, where we note $i_2 = -i_L$:
+			\begin{align*}
+				i_1 &= -i_2 \left(a_{21} \cdot R_L + a_{22} \right) \\
+				&= i_L \left(a_{21} \cdot R_L + a_{22} \right) \\
+				&= 384.62 * 10^{-3} \left(0.5 \cdot 2.6 + 1.5 \right) \\
+				&= 1.077 \ \text{A}
+			\end{align*}
+			And so, the current flowing into port 1 is $i_1 = 1.077$ A.
+			\\
 		}
 	\end{enumerate}
+
 	}
 	
 	%Part b
