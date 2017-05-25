@@ -33,7 +33,29 @@
 		
 		%Part ii
 		\item{
-		
+			Maximum power transferred to load can be found from the formula:
+			\begin{equation*}
+				P_{L \ max} = \frac{V_L^2}{R_L}
+			\end{equation*}
+
+			For the Thevenin equivalent circuit, $V_L$, the voltage drop across the load, can be found by voltage division. However, since $R_L = R_{Th}$, we know half of $V_{Th}$ will drop across $R_L$, the other half dropped across $R_{Th}$.
+			\\ \\
+			Now by the formula sheet:
+			\begin{align*}
+				V_{Th} &= \frac{V_g}{a_{11} + a_{21} \cdot R_g} \\
+				&= \frac{10}{4 + 0.5 \cdot 2} \\
+				&= 2 \ \text{V}
+			\end{align*}
+			\begin{align*}
+				\therefore V_L &= \frac{V_{Th}}{2} \\
+				&= 1 \ \text{V}
+			\end{align*}
+			\begin{align*}
+				\therefore P_{L \ max} &= \frac{1^2}{2.6} \\
+				&= 384.62 \ \text{mW}
+			\end{align*}
+			The maximum power delivered to the load is 384.62 mW.
+			\\
 		}
 		
 		%Part iii
