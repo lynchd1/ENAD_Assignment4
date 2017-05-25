@@ -8,7 +8,27 @@
 	\begin{enumerate}
 		%Part i
 		\item{
-			We know that in a Thevenin equivalent circuit, maximum power transfer to the load occurs when $Z_L = Z_{Th}^*$, or more simply for entirely resistive circuits, $R_L = R_{Th}$.
+			We know that in a Thevenin equivalent circuit, maximum power transfer to the load occurs when $Z_L = Z_{Th}^*$, or for entirely resistive circuits, $R_L = R_{Th}$.
+			
+			\begin{figure}[H]
+				\centering
+				\begin{circuitikz}
+					\draw (0,3) to[american voltage source, l_=$V_{Th}$] (0,0);
+					\draw (0,3) to[R=$R_{Th}$, -o] (3,3) -- 
+						(4,3) to[R = $R_L$] (4,0)
+							to[short, -o] (3,0) -- (0,0);
+				\end{circuitikz}
+				\caption{Thevenin equivalent circuit}
+			\end{figure}
+
+			Now by the formula sheet:
+			\begin{align*}
+				R_{Th} &= \frac{a_{12} + a_{22} \cdot R_g}{a_{11} + a_{21} \cdot R_g} \\
+				&= \frac{10 + 1.5 \cdot 2}{4 + 0.5 \cdot 2} \\
+				&= 2.6 \ \Omega
+			\end{align*}
+			Therefore, when $R_L = 2.6 \ \Omega$, maximum power is transferred to the load resistor.
+			\\
 		}
 		
 		%Part ii
