@@ -87,6 +87,59 @@
 	
 	%Part b
 	\item{
-	
+		For measurement 1, we have the constraint that $V_2 = 0$ V. \\
+		For measurement 2, we have the constraing that $V_1 = 0$ V. \\
+		\\
+		Therefore, we want to find a set of two-port network parameters that have $V_1$ and $V_2$ as the independent variables. \\
+		\\
+		We find the y parameters meet this condition:
+		\begin{alignat*}{2}
+			i_1 = y_{11} \cdot v_1 &+ y_{12} \cdot v_2 &\qquad \qquad \qquad \qquad \qquad
+			i_2 = y_{21} \cdot v_1 &+ y_{22} \cdot v_2 \\ \\
+			y_{11} = \frac{i_1}{v_1} &\Bigg|_{v_2 = 0} \ \text{S} &\qquad \qquad \qquad \qquad \qquad
+			y_{21} = \frac{i_2}{v_1} &\Bigg|_{v_2 = 0} \ \text{S} \\
+			y_{12} = \frac{i_1}{v_2} &\Bigg|_{v_1 = 0} \ \text{S} &\qquad \qquad \qquad \qquad \qquad
+			y_{22} = \frac{i_2}{v_2} &\Bigg|_{v_1 = 0} \ \text{S} \\
+		\end{alignat*}
+		By measurement 1:
+		\begin{equation*}
+			y_{11} = \frac{1}{10} = 100 \ \text{mS} \qquad \qquad \qquad \qquad \qquad
+			y_{21} = \frac{-0.5}{10} = -50 \ \text{mS}
+		\end{equation*}
+		\\ By measurement 2:
+		\begin{equation*}
+			y_{12} = \frac{-1}{20} = -50 \ \text{mS} \qquad \qquad \qquad \qquad \qquad
+			y_{22} = \frac{3}{20} = 150 \ \text{mS} \\
+		\end{equation*}
+		Now for cascade of two-port networks, $[A_T] = [A_1] \times [A_2]$, where these are the a parameter matrices for the overall network, network 1 and network 2 respectively. \\
+		\\
+		Therefore convert above y parameters to a parameters to make finding overall network parameters easier (note $\Delta [Y]$ is the discriminant of the y parameter matrix):
+		\begin{alignat*}{2}
+			&a_{11} = -\frac{y_{22}}{y_{21}} = 3 &\qquad \qquad \qquad \qquad \qquad
+			&a_{12} = -\frac{1}{y_{21}} = 20 \ \Omega \\
+			&a_{21} = -\frac{\Delta [Y]}{y_{21}} = 0.25 \ \text{S} &\qquad \qquad \qquad \qquad \qquad
+			&a_{22} = -\frac{y_{11}}{y_{21}} = 2
+		\end{alignat*}
+		As stated above, we can find the a parameters of the overall two-port network by matrix multiplying the a parameters of the constituent cascaded two-port networks:
+		\begin{align*}
+			[A_T] &= [A_1] \times [A_2] \\
+			&= 
+				\begin{bmatrix}
+					4 & 10 \ \Omega \\
+					0.5 \ \text{S} & 1.5
+				\end{bmatrix}
+				\begin{bmatrix}
+					3 & 20 \ \Omega \\
+					0.25 \ \text{S} 2
+				\end{bmatrix}
+			\\
+			&=
+				\begin{bmatrix}
+					14.5 & 100 \ \Omega \\
+					1.875 \ \text{S} & 13
+				\end{bmatrix}
+		\end{align*}
+		And so we find that the a parameters of the cascaded network are $a_{11} = 14.5$, $a_{12} = 100 \ \Omega$, $a_{21} = 1.875 \ \text{S}$ and $a_{22} = 13$.
+		\\
 	}
 \end{enumerate}
