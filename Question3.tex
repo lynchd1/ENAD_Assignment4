@@ -4,7 +4,28 @@
 	
 	%Part a
 	\item{
-	
+		Design $2^{nd}$ order filter by cascading two first order filters together, followed by a gain stage.\\
+		\\
+		Design the filter by starting with prototype stages then frequency and magnitude scaling to get desired properties. \\
+		\\
+		Now a prototype first order active high pass filter is of form:
+		\begin{figure}[H]
+			\centering
+			\begin{circuitikz}
+				\draw (0,3) to[R=$R_s$] (2,3)
+					to[C=$C_s$] (4,3) 
+					to[short] (4,5) 
+					to[R=$R_f$] (7,5)
+					to[short] (7,2.5);
+				\draw (0,3) to[open, v_=$v_i$, o-o] (0,0);
+				\draw (0,0) to[short, o-o] (8,0);
+				\draw (5.5,2.5) node[op amp] (opamp) {}
+					(opamp.-) to[short, -*] (4,3) 
+					(opamp.+) to[short] (4,2) to[short,-*] (4,0)
+					(opamp.out) to[short, -*] (7,2.5) to[short, -o] (8,2.5);
+				\draw(8,0) to [open, v<=$v_o$, o-o] (8,2.5);
+			\end{circuitikz}
+		\end{figure}
 	}
 	
 	%Part b
