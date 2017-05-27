@@ -8,7 +8,7 @@
 		\\
 		Design the filter by starting with prototype stages then frequency and magnitude scaling to get desired properties. \\
 		\\
-		Now a prototype first order active high pass filter is of form:
+		Now a prototype first order active high pass filter has unity gain in the passband and a cutoff frequency of $\omega_c = 1$ rad/s, and is of form:
 		\begin{figure}[H]
 			\centering
 			\begin{circuitikz}
@@ -26,6 +26,15 @@
 				\draw(8,0) to [open, v<=$v_o$, o-o] (8,2.5);
 			\end{circuitikz}
 		\end{figure}
+		Noting that a circuit of this form has transfer function:
+		\begin{equation*}
+			H_L(s) = \frac{-s}{s+1}
+		\end{equation*}
+		Now when two of these are connected in cascade, the overall transfer function is:
+		\begin{align*}
+			H(s) &= H_L(s) \cdot H_L(s) \\
+			&= \frac{s^2}{(s+1)^2}
+		\end{align*}
 	}
 	
 	%Part b
