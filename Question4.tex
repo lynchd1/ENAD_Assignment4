@@ -1,8 +1,8 @@
 %Question 4
 
-Design this bandreject filter by connecting a low pass Butterworth filter with a cutoff frequency of 500 Hz and gain of 0 dB in parallel with a high pass Butterworth filter with a cutoff frequency of 5 kHz and gain of 0 dB (thereby rejecting frequencies between 500 Hz and 5 kHz), then connecting both to separate inputs of a summing amplifier with gain of 20 dB.\\
+Design this bandreject filter by connecting a low pass Butterworth filter with a cutoff frequency of 500 Hz and gain of 0 dB in the passband in parallel with a high pass Butterworth filter with a cutoff frequency of 5 kHz and gain of 0 dB in the passband (thereby rejecting frequencies between 500 Hz and 5 kHz), then connecting both to separate inputs of a summing amplifier with gain of 20 dB in the passband.\\
 \\
-Start with designing the low pass section.\\
+Start with designing the low pass stage.\\
 The 3$^\text{rd}$ order normalised Butterworth polynomial is:
 \begin{equation*}
 	\big(s+1 \big) \big(s^2+s+1 \big)
@@ -11,7 +11,7 @@ Therefore the 3$^\text{rd}$ order normalised low pass Butterworth filter has the
 \begin{equation*}
 	\frac{1}{\big(s+1 \big) \big(s^2+s+1 \big)} = \frac{1}{\, s+1 \,} \cdot \frac{1}{\, s^2+s+1 \,}
 \end{equation*}
-This results in a cascade of a 1$^\text{st}$ order low pass Butterworth filter with a 2$^\text{nd}$ order low pass Butterworth filter, both with passband gains of 0 dB and cutoff frequencies of 1 rad/s. This can be achieved with the following circuit:
+This results in the cascade of a 1$^\text{st}$ order low pass Butterworth filter with a 2$^\text{nd}$ order low pass Butterworth filter, both with passband gains of 0 dB and cutoff frequencies of 1 rad/s. This can be achieved with the following circuit:
 \begin{figure}[H]
 	\centering
 	\begin{circuitikz}
@@ -49,7 +49,7 @@ This results in a cascade of a 1$^\text{st}$ order low pass Butterworth filter w
 We need to find resistor and capacitor values for the normalised filters.\\
 \\
 Let $R_1 = R_2 = R_3 = R_4 = 1 \Omega$.\\
-For the normalised 1$^\text{st}$ order low pass Butterworth filter, we note that the transfer function is the same as the transfer function of the prototypical 1$^\text{st}$ order active low pass filter. Therefore $C_1 = 1$ F.\\
+For the normalised 1$^\text{st}$ order low pass Butterworth filter, we note that the transfer function is the same as the transfer function of the prototypical 1$^\text{st}$ order active low pass filter. Therefore, the component values for this normalised Butterworth filter should match those of the 1$^\text{st}$ order prototype filter, and so $C_1 = 1$ F.\\
 \\
 For the normalised 2$^\text{nd}$ order low pass Butterworth filter, we note that the transfer function is:
 \begin{align*}
@@ -72,7 +72,7 @@ First off we perform frequency scaling by finding the frequency scaling factor $
 	&= \frac{2 \cdot \pi \cdot 500}{1} \\
 	&= 3141.6
 \end{align*}
-Now we must use 1 k$\Omega$ resistors in the low pass filter, so we perform magnitude scaling by finding the magnitude scaling factor $k_m$:
+Now we must use 1 k$\Omega$ resistors in the final design of the low pass filter section, so we perform magnitude scaling by finding the magnitude scaling factor $k_m$:
 \begin{align*}
 	k_m &\triangleq \frac{R^{'}}{R} \\
 	&= \frac{1000}{1} \\
@@ -80,13 +80,13 @@ Now we must use 1 k$\Omega$ resistors in the low pass filter, so we perform magn
 \end{align*}
 We can now scale the capacitors to new values to achieve the desired cutoff frequency:
 \begin{align*}
-	C_n^{'} = \frac{C_n}{\, k_m \, k_f \,} \\
+	C_n^{'} &= \frac{C_n}{\, k_m \, k_f \,} \\
 	\\
 	\therefore C_1^{'} &= \frac{1}{1000 \cdot 3141.6} = 318 \, \text{nF} \\
 	\therefore C_2^{'} &= \frac{2}{1000 \cdot 3141.6} = 637 \, \text{nF} \\
 	\therefore C_3^{'} &= \frac{0.5}{1000 \cdot 3141.6} = 159 \, \text{nF}
 \end{align*}
-And so we have finished the design of the 3$^\text{rd}$ order low pass Butterworth filter, whose circuit is shown below:
+And so we have finished the design of the low pass section, whose circuit is shown below:
 \begin{figure}[H]
 	\centering
 	\begin{circuitikz}
@@ -121,5 +121,241 @@ And so we have finished the design of the 3$^\text{rd}$ order low pass Butterwor
 		\draw (13.5,0) to [open, v<=$v_o$, o-o] (13.5,2.5);
 	\end{circuitikz}
 \end{figure}
-We now design the high pass section.\\
+We now design the high pass stage.\\
+We will use the same normalised Butterworth polynomial as from the low pass design section.\\
+Therefore, the transfer function of the 3$^\text{rd}$ order normalised high pass Butterworth filter is:
+\begin{equation*}
+	\frac{s^3}{\, \big(s + 1 \big) \big(s^2 + s + 1 \big)} = \frac{s}{\, s+1 \,} \cdot \frac{s^2}{\, s^2 + s + 1 \,}
+\end{equation*}
+This results in the cascade of a 1$^\text{st}$ order high pass Butterworth filter with a 2$^\text{nd}$ order high pass Butterworth filter, both with passband gains of 0 dB and cutoff frequencies of 1 rad/s. This can be achieved with the following circuit:
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,2.5) to [R = $R_1$] (2,2.5)
+			to [C = $C_1$] (3.5,2.5)
+			to [short] (3.5,4)
+			to [R = $R_2$] (6.5,4)
+			to [short] (6.5,2);
+		\draw (0,0) to [short] (14.5,0);
+		\draw (0,2.5) to [open, v=$v_i$, o-o] (0,0);
+		\draw (5,2) node[op amp] (opamp) {}
+			(opamp.-) to [short, -*] (3.5,2.5)
+			(opamp.+) to [short] (3.5,1.5)
+				to [short, -*] (3.5,0)
+			(opamp.out) to [short, -*] (6.5,2);
+		\draw (6.5,2) to [C = $C_2$] (8.5,2)
+			to [C = $C_3$] (10.5,2)
+			to [R = $R_4$, -*] (10.5,0);
+		\draw (8.5,2) to [short, *-] (8.5,2.5)
+			to [R=$R_3$] (8.5,4.5)
+			to [short] (10.5,4.5)
+			to [short] (10.5,3);
+		\draw (10.5,4.5) to [short, *-] (13.5,4.5)
+			to [short] (13.5,2.5);
+		\draw (12,2.5) node[op amp] (opamp) {}
+			(opamp.-) to [short] (10.5,3)
+			(opamp.+) to [short, -*] (10.5,2)
+			(opamp.out) to [short, -*] (13.5,2.5);
+		\draw (13.5,2.5) to [short] (14.5,2.5);
+		\draw (14.5,0) to [open, v<=$v_o$, o-o] (14.5,2.5);
+	\end{circuitikz}
+\end{figure}
+We need to find resistor and capacitor values for the normalised filters.\\
+\\
+Let $C_1 = C_2 = C_3 = 1$ F.\\
+For the normalised 1$^\text{st}$ order high pass Butterworth filter, we note that the transfer function is the same as the transfer function of the prototypical 1$^\text{st}$ order active high pass filter. Therefore, the component values for this normalised Butterworth filter should match those of the 1$^\text{st}$ order prototype filter, and so $R_1 = R_2 = 1 \, \Omega$.\\
+\\
+For the normalised 2$^\text{nd}$ order high pass Butterworth filter, we note that the transfer function is:
+\begin{align*}
+	H_n(s) &= \frac{s^2/ (R_3 \, R_4)}{s^2 + \frac{2}{\, R_3 \,} \cdot s + \frac{1}{\, R_3 \, R_4 \,}} \\
+	&= \frac{s^2}{\, s^2 + s + 1 \,} \\
+	\\
+	\therefore \frac{2}{R_3} &= 1 \\
+	\therefore R_3 &= 2 \, \Omega \\
+	\\
+	\therefore \frac{1}{\, R_3 \, R_4 \,} &= 1 \\
+	\therefore R_4 &= \frac{1}{R_3} \\
+	&= 0.5 \, \Omega
+\end{align*}
+With these above values, we have a 3$^\text{rd}$ order high pass Butterworth filter with a gain of 0 dB in the passband and a cutoff frequency of 1 rad/s.\\
+\\
+We now need to adjust the filter to get the desired cutoff frequency of 5 kHz.\\
+First off we perform frequency scaling by finding the frequency scaling factor $k_f$:
+\begin{align*}
+	k_f &= \frac{\omega_c^{'}}{\omega_c} \\
+	&= \frac{2 \cdot \pi \cdot 5000}{1} \\
+	&= 31,415.9
+\end{align*}
+Now we must use 10 nF capacitors in the final design of the high pass filter section, so we perform magnitude scaling by finding the magnitude scaling factor $k_m$:
+\begin{align*}
+	k_m &\triangleq \frac{C}{\, C^{'} \, k_f \,} \\
+	&= \frac{1}{10^{-8} \cdot 31415.9} \\
+	&= 3183.1
+\end{align*}
+We can now scale the resistors to new values to achieve the desired cutoff frequency:
+\begin{align*}
+	R_n^{'} &= R_n \cdot k_m \\
+	\\
+	\therefore R_1^{'} &= 1 \cdot 3183.1 = 3.18 \, \text{k}\Omega \\
+	\therefore R_2^{'} &= 1 \cdot 3183.1 = 3.18 \, \text{k}\Omega \\
+	\therefore R_3^{'} &= 2 \cdot 3183.1 = 6.37 \, \text{k}\Omega \\
+	\therefore R_4^{'} &= 0.5 \cdot 3183.1 = 1.59 \, \text{k}\Omega
+\end{align*}
+And so we have finished the design of the high pass section, whose circuit is shown below:
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,2.5) to [R = $3.18 \, \text{k}\Omega$] (2,2.5)
+			to [C = $10 \, \text{nF}$] (3.5,2.5)
+			to [short] (3.5,4)
+			to [R = $3.18 \, \text{k}\Omega$] (6.5,4)
+			to [short] (6.5,2);
+		\draw (0,0) to [short] (14.5,0);
+		\draw (0,2.5) to [open, v=$v_i$, o-o] (0,0);
+		\draw (5,2) node[op amp] (opamp) {}
+			(opamp.-) to [short, -*] (3.5,2.5)
+			(opamp.+) to [short] (3.5,1.5)
+				to [short, -*] (3.5,0)
+			(opamp.out) to [short, -*] (6.5,2);
+		\draw (6.5,2) to [C = $10 \, \text{nF}$] (8.5,2)
+			to [C = $10 \, \text{nF}$] (10.5,2)
+			to [R = $1.59 \, \text{k}\Omega$, -*] (10.5,0);
+		\draw (8.5,2) to [short, *-] (8.5,2.5)
+			to [R=$6.37 \, \text{k}\Omega$] (8.5,4.5)
+			to [short] (10.5,4.5)
+			to [short] (10.5,3);
+		\draw (10.5,4.5) to [short, *-] (13.5,4.5)
+			to [short] (13.5,2.5);
+		\draw (12,2.5) node[op amp] (opamp) {}
+			(opamp.-) to [short] (10.5,3)
+			(opamp.+) to [short, -*] (10.5,2)
+			(opamp.out) to [short, -*] (13.5,2.5);
+		\draw (13.5,2.5) to [short] (14.5,2.5);
+		\draw (14.5,0) to [open, v<=$v_o$, o-o] (14.5,2.5);
+	\end{circuitikz}
+\end{figure}
+We now design the gain stage.\\
+We are designing based off a desired magnitude response, with no attention paid to the phase response. Therefore, we will choose to implement the gain using an inverting summing op-amp amplifier circuit.
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}
+		\draw (0,3.5) to [R=$R_s$] (3,3.5)
+			to [short] (3,2.5);
+		\draw (0,3.5) to [open, v=$v_a$, o-] (0,0);
+		\draw (1,1.5) to [R=$R_s$] (3,1.5)
+			to [short] (3,2.5);
+		\draw (1,1.5) to [open, v=$v_b$, o-*] (1,0);
+		\draw (0,0) to [short, o-o] (7.5,0);
+		\draw (3,2.5) to [short, *-] (3.5,2.5)
+			to [short] (3.5,4)
+			to [R=$R_f$] (6.5,4)
+			to [short] (6.5,2);
+		\draw (5,2) node[op amp] (opamp) {}
+			(opamp.-) to [short, -*] (3.5,2.5)
+			(opamp.+) to [short] (3.5,1.5)
+				to [short, -*] (3.5,0)
+			(opamp.out) to [short, -*] (6.5,2)
+				to [short, -o] (7.5,2);
+		\draw (7.5,0) to [open, v<=$v_o$] (7.5,2);
+	\end{circuitikz}
+\end{figure} 
+We note that there is equal weighting to both inputs, and so the transfer function for either input is:
+\begin{equation*}
+	H(s) = -\frac{R_f}{R_s}
+\end{equation*}
+Now we want a passband gain of 20 dB $=$ 10 V/V. And so we want:
+\begin{align*}
+	\big|H(s)\big| &= 10 \\
+	\therefore \frac{R_f}{R_s} &= 10, \qquad \text{let $R_s$ = 1 k$\Omega$,} \implies R_f = 10 \ \text{k}\Omega
+\end{align*}
+We now have all of the separate stages designed, so we bring them together as described already:
+\begin{figure}[H]
+	\centering
+	\scalebox{0.65}{
+		\begin{circuitikz}
+			%input
+			\draw (0,0) to [short] (-2,0)
+				to [vsource, v_=$v_i$] (-2,-2);
+			\draw (-2,-2) node[ground] {};
 
+			%low pass
+			\draw (0,0) to [short] (0,3.5)
+				to [R=$1 \, \text{k}\Omega$] (2,3.5)
+				to [short, *-] (2,5)
+				to [R=$1 \, \text{k}\Omega$] (5,5)
+				to [short] (5,3);
+			\draw (2,5) to [short, *-] (2,6.5)
+				to [C=$318 \, \text{nF}$] (5,6.5)
+				to [short, -*] (5,5);
+			\draw (3.5,3) node[op amp] (opamp) {}
+				(opamp.-) to [short, -*] (2,3.5)
+				(opamp.+) to [short] (2,2.5)
+					to [short] (2,1)
+				(opamp.out) to [short, -*] (5,3);
+			\draw (2,1) node[ground] {};
+			\draw (5,3) to [R = $1 \, \text{k}\Omega$] (7.5,3)
+				to [R=$1 \, \text{k}\Omega$] (9.5,3)
+				to [C=$159 \, \text{nF}$] (9.5,1);
+			\draw (9.5,1) node[ground] {};
+			\draw (7.5,3) to [C=$637 \, \text{nF}$, *-] (7.5,5.5)
+				to [short] (9.5,5.5)
+				to [short] (9.5,4);
+			\draw (9.5,5.5) to [short, *-] (12.5,5.5)
+				to [short] (12.5,3.5);
+			\draw (11,3.5) node[op amp] (opamp) {}
+				(opamp.-) to [short] (9.5,4)
+				(opamp.+) to [short, -*] (9.5,3)
+				(opamp.out) to [short, -*] (12.5,3.5);
+			\draw (12.5,3.5) to [short] (13.5,3.5)
+				to [R=$1 \, \text{k}\Omega$] (16,3.5)
+				to [short] (16,0);
+
+			%high pass
+			\draw (0,0) to [short, *-] (0,-3.5)
+				to [R = $3.18 \, \text{k}\Omega$] (2,-3.5)
+				to [C = $10 \, \text{nF}$] (3.5,-3.5)
+				to [short] (3.5,-2)
+				to [R = $3.18 \, \text{k}\Omega$] (6.5,-2)
+				to [short] (6.5,-4);
+			\draw (5,-4) node[op amp] (opamp) {}
+				(opamp.-) to [short, -*] (3.5,-3.5)
+				(opamp.+) to [short] (3.5,-4.5)
+					to [short] (3.5,-6)
+				(opamp.out) to [short, -*] (6.5,-4);
+			\draw (3.5,-6) node[ground] {};
+			\draw (6.5,-4) to [C = $10 \, \text{nF}$] (8.5,-4)
+				to [C = $10 \, \text{nF}$] (10.5,-4)
+				to [R = $1.59 \, \text{k}\Omega$] (10.5,-6);
+			\draw (10.5,-6) node[ground] {};
+			\draw (8.5,-4) to [short, *-] (8.5,-3.5)
+				to [R=$6.37 \, \text{k}\Omega$] (8.5,-1.5)
+				to [short] (10.5,-1.5)
+				to [short] (10.5,-3);
+			\draw (10.5,-1.5) to [short, *-] (13.5,-1.5)
+				to [short] (13.5,-3.5);
+			\draw (12,-3.5) node[op amp] (opamp) {}
+				(opamp.-) to [short] (10.5,-3)
+				(opamp.+) to [short, -*] (10.5,-4)
+				(opamp.out) to [short, -*] (13.5,-3.5);
+			\draw (13.5,-3.5) to [R=$1 \, \text{k}\Omega$] (16,-3.5)
+				to [short] (16,0);
+
+			%gain
+			\draw (16,0) to [short, *-] (17,0)
+				to [short] (17,1.5)
+				to [R=$10 \, \text{k}\Omega$] (20,1.5)
+				to [short] (20,-0.5);
+			\draw (18.5,-0.5) node[op amp] (opamp) {}
+				(opamp.-) to [short, -*] (17,0)
+				(opamp.+) to [short] (17,-1)
+					to [short] (17,-2)
+				(opamp.out) to [short, -*] (20,-0.5)
+					to [short, -*] (21,-0.5);
+			\draw (17,-2) node[ground] {};
+			\draw (21,-2) node[ground] {};
+			\draw (21,-2) to [short,-*] (21,-2);
+			\draw (21,-2) to [open, v<=$v_o$] (21,-0.5);
+		\end{circuitikz}
+	}
+\end{figure}
+And so we have a 3$^\text{rd}$ order bandreject Butterworth filter with passgand gain of 20 dB, a lower cutoff frequency of 500 Hz and an upper cutoff frequency of 5 kHz, using only 1 k$\Omega$ resistors in the low pass stage and 10 nF capacitors in the high pass stage.
