@@ -9,8 +9,11 @@ and no current flows into the non-inverting and inverting terminals of the op-am
 
 Circuit in transformed s-domain is: \\
 
-%INSERT DIAGRAM HERE
-INSERT DIAGRAM HERE
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.6]{q5.pdf}
+	\end{center}
+	\end{figure}
 
 Using KCL at node \circled{1}: $\Sigma I_{out} = 0$
 \begin{align*}

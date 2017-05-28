@@ -17,14 +17,19 @@
 \def \Atwoone{542.7		\times 10^{-12}}
 \def \Atwotwo{27.1350 	\times 10^{-6}}
 
-\def \Gtot{1.8496 \times 10^3}
+\def \Gtot{2.0056 \times 10^3}
 
 \begin{enumerate}
 	
 	%Part a
 	\item{
-	%INSERT DIAGRAM HERE
-	INSERT DIAGRAM HERE
+	\text{}
+	
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.6]{q1_1.pdf}
+	\end{center}
+	\end{figure}
 	
 	Using KVL in loop 1:
 	\begin{align*}
@@ -107,18 +112,21 @@
 	\frac{1}{(\Athree) (\Rithree) }	& -\frac{\Rothree}{(\Athree) (\Rithree)}
 	\end{matrix}  \right] 
 	\\
-	A &= \mathbf{A_1 A_2 A_3} \text{ (Bold indicating no minus signs on }A_{i_j{2}})
+	A &= \mathbf{A_1 A_2 A_3} \text{ (Bold indicating no minus signs on }A_{i_{j2}})
 	\\
 	&= \left[ \begin{matrix}
 	\Aoneone 			& -\Aonetwo \; \Omega \\ 
 	\Atwoone \; \mho \	& -\Atwotwo
-	\end{matrix}  \right] 
+	\end{matrix}  \right] \text{ (minus signs added back in)}
 	\end{align*}
 	
 	Now the circuit can be modelled like this:
 	
-	%INSERT DIAGRAM HERE
-	INSERT DIAGRAM HERE
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.6]{q1_2.pdf}
+	\end{center}
+	\end{figure}
 	
 	Using Table 18.2 from the formula sheet, the formula
 	

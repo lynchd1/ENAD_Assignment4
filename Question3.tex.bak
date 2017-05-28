@@ -15,8 +15,11 @@
 	
 	Filter will have the structure:
 	
-	INSERT DIAGRAM HERE!
-	%INSERT DIAGRAM HERE!	
+	\begin{figure}[H]
+	\begin{center}
+	\includegraphics[scale=0.6]{q3_1.pdf}
+	\end{center}
+	\end{figure}
 	
 	For the filter stages, will use prototype filters and scaling to find values of components.
 	
