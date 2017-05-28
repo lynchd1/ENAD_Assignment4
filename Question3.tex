@@ -176,7 +176,7 @@
 						to [R=$2.47 \, \text{k}\Omega$, i_=$I_a(s)$] (7.5,4)
 						to [short] (7.5,2);
 					\draw (0,2.5) to [open, v_=$V_i(s)$, o-o] (0,0);
-					\draw (0,0) to [short, o-o] (23,0);
+					\draw (0,0) to [short, o-o] (23.5,0);
 					\draw (6,2) node[op amp] (opamp) {}
 						(opamp.-) to [short, -*] (4.5,2.5) 
 						(opamp.+) to [short] (4.5,1.5) to[short,-*] (4.5,0)
@@ -197,17 +197,17 @@
 						node[label={100:$V_b(s)$}] {};;
 
 					\draw (17,2) to [short] (17,2.5)
-						to [R=$1 \, \text{k}\Omega$] (19.5,2.5)
-						to [short] (19.5,4)
-						to [R=$10 \, \text{k}\Omega$] (22.5,4)
-						to [short] (22.5,2);
-					\draw (21,2) node[op amp] (opamp) {}
-						(opamp.-) to [short, -*] (19.5,2.5)
-						(opamp.+) to [short] (19.5,1.5)
-							to [short, -*] (19.5,0)
-						(opamp.out) to [short, -*] (22.5,2)
-							to [short, -o] (23,2);
-					\draw (23,0) to [open, v<=$V_o(s)$] (23,2);
+						to [R=$1 \, \text{k}\Omega$, i_=$I_{s3}(s)$] (20,2.5)
+						to [short] (20,4)
+						to [R=$10 \, \text{k}\Omega$, i_=$I_o(s)$] (23,4)
+						to [short] (23,2);
+					\draw (21.5,2) node[op amp] (opamp) {}
+						(opamp.-) to [short, -*] (20,2.5)
+						(opamp.+) to [short] (20,1.5)
+							to [short, -*] (20,0)
+						(opamp.out) to [short, -*] (23,2)
+							to [short, -o] (23.5,2);
+					\draw (23.5,0) to [open, v<=$V_o(s)$] (23.5,2);
 				\end{circuitikz}
 			}
 		\end{figure}
@@ -215,18 +215,18 @@
 		\begin{equation*}
 			-V_a - I_a \cdot 2.47 \times 10^3 + V_n = 0
 		\end{equation*}
-		Now $V_n = 0$ V due to the virtual short-circuit condition at the op amp's input pins ($V_p - V_n = 0$ V) and $V_p = 0$ V. Therefore:
+		Now $V_n = 0$ V (virtual ground) due to the virtual short-circuit condition at the op amp's input pins ($V_p - V_n = 0$ V) and $V_p = 0$ V. Therefore:
 		\begin{equation}
-			V_a = -I_a \cdot 2.47 \times 10^3
+			V_a(s) = -I_a \cdot 2.47 \times 10^3
 		\end{equation}
-		Now find the current $I_{s1}$ by using Ohm's law:
-		\begin{align*}
-			I_{s1} &= \frac{V_i}{\, 2.47 \times 10^3 + \frac{\, 10^7 \,}{s} \,} \\
+		Now find the current $I_{s1}$ by using Ohm's law and the virtual ground at $V_n$:
+		\begin{align}
+			I_{s1}(s) &= \frac{V_i}{\, 2.47 \times 10^3 + \frac{\, 10^7 \,}{s} \,} \nonumber \\
 			&= \frac{\, s \cdot V_i /\left(2.47 \times 10^3\right) \,}{s + 4.04 \times 10^3}
-		\end{align*}
-		Now note that due to current constraint of the input pins of the op amp (no current flows into input pins), $I_{s1} = I_a$. Therefore, by equation (1):
+		\end{align}
+		Now note that due to current constraint of the input pins of the op amp (no current flows into input pins), $I_{s1} = I_a$. Substitute $I_a$ in equation (1) for $I_{s1}$ in equation (2):
 		\begin{align*}
-			V_a &= - \frac{\, s \cdot V_i /\left(2.47 \times 10^3\right) \,}{s + 4.04 \times 10^3} \cdot 2.47 \times 10^3 \\
+			V_a(s) &= - \frac{\, s \cdot V_i / \! \left(2.47 \times 10^3\right) \,}{s + 4.04 \times 10^3} \cdot 2.47 \times 10^3 \\
 			&= - \frac{s \cdot V_i}{\, s + 4.04 \times 10^3 \,} \\
 			\\
 			\therefore H_{a-i}(s) = \frac{V_a}{V_i} &= -\frac{s}{\, s + 4.04 \times 10^3 \,}
@@ -239,6 +239,27 @@
 			\therefore H_{b-i}(s) = \frac{V_b}{V_i} &= \frac{s^2}{\, \left(s + 4.04 \times 10^3 \right)^2 \,}
 		\end{align*}
 		Now we perform KVL from $V_o$ to the common rail via the 10 k$\Omega$ resistor and the inverting input pin of the third op amp, making use of the aforementioned virtual ground at the inverting input pin ($V_n = 0$ V)
+		\begin{align}
+			-V_o - I_o \cdot 10 \times 10^3 + V_n &= 0 \nonumber \\
+			\therefore V_o(s) &= - I_o \cdot 10^4
+		\end{align}
+		Again, due to current constraint of op amp input pins, $I_n = 0$ A. Therefore $I_{s3} = I_o$. \\
+		Now by Ohm's law and the virtual ground at $V_n$:
+		\begin{equation}
+			I_{s3}(s) = \frac{V_b}{\, 10^3 \,}
+		\end{equation}
+		Now substitute $I_o$ in equation (2) for $I_{s3}$ in equation (3):
+		\begin{align*}
+			V_o &= -\frac{V_b}{\, 10^3 \,} \cdot 10^4 \\
+			&= -10 \cdot V_b \\
+			\\
+			\therefore H_{o-b}(s) = \frac{V_o}{V_b} &= -10
+		\end{align*}
+		And so we can find the transfer function of the entire circuit:
+		\begin{align*}
+			H(s) &= H_{b-i}(s) \cdot H_{o-b}(s) \\
+			&= -10 \cdot \frac{s^2}{\, \left(s + 4.04 \times 10^3 \right)^2 \,}
+		\end{align*}
 	}
 	
 	%Part c
