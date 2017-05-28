@@ -116,11 +116,11 @@
 		Therefore the overall design is:
 		\begin{figure}[H]
 			\centering
-			\scalebox{0.6}{
+			\scalebox{0.625}{
 				\begin{circuitikz}
 					\draw (0,2.5) to [short] (0.5,2.5)
 						to [R=$2.47 \, \text{k}\Omega$] (2.5,2.5)
-						to [C=$1 \, \text{F}$] (4,2.5)
+						to [C=$100 \, \text{nF}$] (4,2.5)
 						to [short] (4,4) 
 						to [R=$2.47 \, \text{k}\Omega$] (7,4)
 						to [short] (7,2);
@@ -134,7 +134,7 @@
 					\draw (8,2) to [short] (8,2.5)
 						to [short] (8.5,2.5)
 						to[R=$2.47 \, \text{k}\Omega$] (10.5,2.5)
-						to[C=$1 \, \text{F}$] (12.5,2.5)
+						to[C=$100 \, \text{nF}$] (12.5,2.5)
 						to[short] (12.5,4) 
 						to[R=$2.47 \, \text{k}\Omega$] (15.5,4)
 						to[short] (15.5,2);
@@ -160,18 +160,90 @@
 				\end{circuitikz}
 			}
 		\end{figure}
-
 	}
 	
 	%Part b
 	\item{
-	
+		Re-draw circuit in s domain:
+		\begin{figure}[H]
+			\centering
+			\scalebox{0.625}{
+				\begin{circuitikz}
+					\draw (0,2.5) to [short] (0.5,2.5)
+						to [R=$2.47 \, \text{k}\Omega$] (2,2.5)
+						to [C=$\frac{10^7}{s} \, \Omega$, i_=$I_{s1}(s)$] (4.5,2.5)
+						to [short] (4.5,4) 
+						to [R=$2.47 \, \text{k}\Omega$, i_=$I_a(s)$] (7.5,4)
+						to [short] (7.5,2);
+					\draw (0,2.5) to [open, v_=$V_i(s)$, o-o] (0,0);
+					\draw (0,0) to [short, o-o] (23,0);
+					\draw (6,2) node[op amp] (opamp) {}
+						(opamp.-) to [short, -*] (4.5,2.5) 
+						(opamp.+) to [short] (4.5,1.5) to[short,-*] (4.5,0)
+						(opamp.out) to [short, -*] (7.5,2) to[short] (8.5,2)
+						node[label={100:$V_a(s)$}] {};
+
+					\draw (8.5,2) to [short] (8.5,2.5)
+						to [short] (9,2.5)
+						to [R=$2.47 \, \text{k}\Omega$] (10.5,2.5)
+						to [C=$\frac{10^7}{s} \, \Omega$, i_=$I_{s2}(s)$] (13,2.5)
+						to [short] (13,4) 
+						to [R=$2.47 \, \text{k}\Omega$, i_=$I_b(s)$] (16,4)
+						to [short] (16,2);
+					\draw (14.5,2) node[op amp] (opamp) {}
+						(opamp.-) to[short, -*] (13,2.5) 
+						(opamp.+) to[short] (13,1.5) to[short,-*] (13,0)
+						(opamp.out) to[short, -*] (16,2) to[short] (17,2)
+						node[label={100:$V_b(s)$}] {};;
+
+					\draw (17,2) to [short] (17,2.5)
+						to [R=$1 \, \text{k}\Omega$] (19.5,2.5)
+						to [short] (19.5,4)
+						to [R=$10 \, \text{k}\Omega$] (22.5,4)
+						to [short] (22.5,2);
+					\draw (21,2) node[op amp] (opamp) {}
+						(opamp.-) to [short, -*] (19.5,2.5)
+						(opamp.+) to [short] (19.5,1.5)
+							to [short, -*] (19.5,0)
+						(opamp.out) to [short, -*] (22.5,2)
+							to [short, -o] (23,2);
+					\draw (23,0) to [open, v<=$V_o(s)$] (23,2);
+				\end{circuitikz}
+			}
+		\end{figure}
+		Now perform KVL from $V_a$ to the common rail via the 2.47 k$\Omega$ resistor and the inverting input pin of the first op amp whose voltage is $V_n$ (note we assume the op amp is operating in its linear region):
+		\begin{equation*}
+			-V_a - I_a \cdot 2.47 \times 10^3 + V_n = 0
+		\end{equation*}
+		Now $V_n = 0$ V due to the virtual short-circuit condition at the op amp's input pins ($V_p - V_n = 0$ V) and $V_p = 0$ V. Therefore:
+		\begin{equation}
+			V_a = -I_a \cdot 2.47 \times 10^3
+		\end{equation}
+		Now find the current $I_{s1}$ by using Ohm's law:
+		\begin{align*}
+			I_{s1} &= \frac{V_i}{\, 2.47 \times 10^3 + \frac{\, 10^7 \,}{s} \,} \\
+			&= \frac{\, s \cdot V_i /\left(2.47 \times 10^3\right) \,}{s + 4.04 \times 10^3}
+		\end{align*}
+		Now note that due to current constraint of the input pins of the op amp (no current flows into input pins), $I_{s1} = I_a$. Therefore, by equation (1):
+		\begin{align*}
+			V_a &= - \frac{\, s \cdot V_i /\left(2.47 \times 10^3\right) \,}{s + 4.04 \times 10^3} \cdot 2.47 \times 10^3 \\
+			&= - \frac{s \cdot V_i}{\, s + 4.04 \times 10^3 \,} \\
+			\\
+			\therefore H_{a-i}(s) = \frac{V_a}{V_i} &= -\frac{s}{\, s + 4.04 \times 10^3 \,}
+		\end{align*}
+		We note that the separate 1$^\text{st}$ order filter stages will have the same transfer function, therefore the analysis of $V_b$ will be the same as that above:
+		\begin{align*}
+			V_b(s) &= -\frac{s \cdot V_a}{\, s + 4.04 \times 10^3 \,} \\
+			&= -\frac{s}{\, s + 4.04 \times 10^3 \,} \cdot -\frac{s \cdot V_i}{\, s + 4.04 \times 10^3 \,} \\
+			\\
+			\therefore H_{b-i}(s) = \frac{V_b}{V_i} &= \frac{s^2}{\, \left(s + 4.04 \times 10^3 \right)^2 \,}
+		\end{align*}
+		Now we perform KVL from $V_o$ to the common rail via the 10 k$\Omega$ resistor and the inverting input pin of the third op amp, making use of the aforementioned virtual ground at the inverting input pin ($V_n = 0$ V)
 	}
 	
 	%Part c
 	\item{
 	
 	}
-	
 	
 \end{enumerate}
