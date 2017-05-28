@@ -12,18 +12,19 @@
 		\begin{figure}[H]
 			\centering
 			\begin{circuitikz}
-				\draw (0,3) to[R=$R_s$] (2,3)
-					to[C=$C_s$] (4,3) 
-					to[short] (4,5) 
-					to[R=$R_f$] (7,5)
-					to[short] (7,2.5);
-				\draw (0,3) to[open, v_=$v_i$, o-o] (0,0);
+				\draw (0,2.5) to[short] (0.5,2.5)
+					to[R=$1 \, \Omega$] (2.5,2.5)	% cannot use = on own in label, must escape with {=} then manage spacing
+					to[C=$1 \, \text{F}$] (4,2.5)
+					to[short] (4,4) 
+					to[R=$1 \, \Omega$] (7,4)
+					to[short] (7,2);
+				\draw (0,2.5) to[open, v_=$v_i$, o-o] (0,0);
 				\draw (0,0) to[short, o-o] (8,0);
-				\draw (5.5,2.5) node[op amp] (opamp) {}
-					(opamp.-) to[short, -*] (4,3) 
-					(opamp.+) to[short] (4,2) to[short,-*] (4,0)
-					(opamp.out) to[short, -*] (7,2.5) to[short, -o] (8,2.5);
-				\draw(8,0) to [open, v<=$v_o$, o-o] (8,2.5);
+				\draw (5.5,2) node[op amp] (opamp) {}
+					(opamp.-) to[short, -*] (4,2.5) 
+					(opamp.+) to[short] (4,1.5) to[short,-*] (4,0)
+					(opamp.out) to[short, -*] (7,2) to[short, -o] (8,2);
+				\draw(8,0) to [open, v<=$v_o$, o-o] (8,2);
 			\end{circuitikz}
 		\end{figure}
 		Noting that a circuit of this form has transfer function:
@@ -35,6 +36,131 @@
 			H(s) &= H_L(s) \cdot H_L(s) \\
 			&= \frac{s^2}{(s+1)^2}
 		\end{align*}
+		We know this transfer function describes a 2$^{\text{nd}}$ order high pass filter with a passband gain of 1 V/V. Now find the cutoff frequency:
+		\begin{equation*}
+			\omega_c \triangleq \omega : \big|H(j\omega)\big| = \frac{1}{\sqrt{2}}
+		\end{equation*}
+		So first find $|H(j\omega)|$:
+		\begin{align*}
+			H(j\omega) &= H(s)\big{|}_{s = j\omega} \\
+			&= \frac{(j\omega)^2}{(j\omega+1)^2} \\
+			&= \frac{-\omega^2}{(j\omega+1)^2} \\
+			\\
+			\big|H(j\omega)\big| &= \frac{\big|-\omega^2\big|}{\big|j\omega+1\big|^2} \\
+			&= \frac{\omega^2}{\Big(\sqrt{\omega^2+1^2}\Big)^2} \\
+			&= \frac{\omega^2}{\omega^2+1}
+		\end{align*}
+		Now find $\omega_c$:
+		\begin{align*}
+			\big|H(j\omega_c)\big| &= \frac{1}{\, \sqrt{2 \,} \,} \\
+			\therefore \frac{\omega_c^2}{\, \omega_c^2+1 \,} &= \frac{1}{\, \sqrt{2 \,} \,} \\
+			\therefore \sqrt{2 \,} \cdot \omega_c^2 - \omega_c^2 &= 1 \\
+			\therefore \omega_c^2 &= \frac{1}{\, \sqrt{2 \,} - 1 \,} \\
+			\therefore \omega_c &= \frac{1}{\, \sqrt{\sqrt{2 \,} - 1 \,} \,} \\
+			&= 1.554 \ \text{rad/s}
+		\end{align*}
+		Noting that the negative root of $\omega_c$ has been rejected, as we define $\omega \geq 0$ rad/s. \\
+		We now know this prototype 2$^{\text{nd}}$ order active high pass filter has a passband gain of 1 V/V and a cutoff frequency of 1.554 rad/s. \\ 
+		\\
+		Now we need to modify this prototype design to match the parameters we want. We do this by frequency scaling and magnitude scaling the response, and hence the circuit. \\
+		\\
+		First we will frequency scale to the desired cutoff frequency of 1 kHz. We do this by finding the frequency scaling factor $k_f \triangleq \frac{\omega_c^{'}}{\omega_c}$, where $\omega_c^{'}$ is the desired cutoff frequency and $\omega_c$ is the current cutoff frequency:
+		\begin{align*}
+			k_f &= \frac{2 \cdot \pi \cdot 1000}{1.554} \\
+			&= 4043.8
+		\end{align*}
+		Now we note that we must use 100 nF capacitors in the final design. Therefore we find the magnitude scaling factor from the following equation:
+		\begin{equation*}
+			k_m = \frac{C}{C^{'} \cdot k_f}
+		\end{equation*}
+		Where C is the prototypical circuit's capacitor value and $C^{'}$ is the desired capacitor value:
+		\begin{align*}
+			k_m &= \frac{1}{100 \times 10^{-9} \cdot 4043.8} \\
+			&= 2472.9
+		\end{align*}
+		Now scale the resistor from the prototypical value ($R$) to the desired value ($R^{'}$):
+		\begin{align*}
+			R^{'} &= k_m \cdot R \\
+			&= 2472.9 \cdot 1 \\
+			&= 2.47 \ \text{k}\Omega
+		\end{align*}
+		Now we want a gain of 1 V/V in the passband in these filter stages, so we want $R_s^{'} = R_f^{'} = 2.47 \ \text{k}\Omega$. \\
+		\\
+		Now we need to design the gain stage, achieve this using an op amp in the inverting amplifier configuration:
+		\begin{figure}[H]
+			\centering
+			\begin{circuitikz}
+				\draw (0,2.5) to[open, v=$v_i$] (0,0) 
+					to [short, o-o] (7,0);
+				\draw (0,2.5) to [short, o-] (0.5,2.5)
+					to [R=$R_s$] (2.5,2.5)
+					to [short] (3,2.5)
+					to [short] (3,4)
+					to [R=$R_f$] (6,4)
+					to [short] (6,2);
+				\draw (4.5,2) node[op amp] (opamp) {}
+					(opamp.-) to [short, -*] (3,2.5)
+					(opamp.+) to [short] (3,1.5)
+						to [short, -*] (3,0)
+					(opamp.out) to [short, -*] (6,2)
+						to [short, -o] (7,2);
+				\draw (7,0) to [open, v<=$v_o$] (7,2);
+			\end{circuitikz}
+		\end{figure}
+		We know this circuit has transfer function $H(s) = -\frac{R_f}{R_s}$\\
+		Now we want a passband gain of 10 V/V. Therefore in the gain stage we want:
+		\begin{align*} 
+			\big|H(s)\big| &= 10 \\
+			\therefore \frac{R_f}{R_s} &= 10, \qquad \text{let $R_s$ = 1 k$\Omega$,} \implies R_f = 10 \ \text{k}\Omega
+		\end{align*}
+		Therefore the overall design is:
+		\begin{figure}[H]
+			\centering
+			\scalebox{0.6}{
+				\begin{circuitikz}
+					\draw (0,2.5) to [short] (0.5,2.5)
+						to [R=$2.47 \, \text{k}\Omega$] (2.5,2.5)
+						to [C=$1 \, \text{F}$] (4,2.5)
+						to [short] (4,4) 
+						to [R=$2.47 \, \text{k}\Omega$] (7,4)
+						to [short] (7,2);
+					\draw (0,2.5) to [open, v_=$v_i$, o-o] (0,0);
+					\draw (0,0) to [short, o-o] (24,0);
+					\draw (5.5,2) node[op amp] (opamp) {}
+						(opamp.-) to [short, -*] (4,2.5) 
+						(opamp.+) to [short] (4,1.5) to[short,-*] (4,0)
+						(opamp.out) to [short, -*] (7,2) to[short] (8,2);
+
+					\draw (8,2) to [short] (8,2.5)
+						to [short] (8.5,2.5)
+						to[R=$2.47 \, \text{k}\Omega$] (10.5,2.5)
+						to[C=$1 \, \text{F}$] (12.5,2.5)
+						to[short] (12.5,4) 
+						to[R=$2.47 \, \text{k}\Omega$] (15.5,4)
+						to[short] (15.5,2);
+					\draw (14,2) node[op amp] (opamp) {}
+						(opamp.-) to[short, -*] (12.5,2.5) 
+						(opamp.+) to[short] (12.5,1.5) to[short,-*] (12.5,0)
+						(opamp.out) to[short, -*] (15.5,2) to[short] (16.5,2);
+
+					\draw (16.5,2) to [short] (16.5,2.5)
+						to [short] (17,2.5)
+						to [R=$1 \, \text{k}\Omega$] (19,2.5)
+						to [short] (19.5,2.5)
+						to [short] (19.5,4)
+						to [R=$10 \, \text{k}\Omega$] (22.5,4)
+						to [short] (22.5,2);
+					\draw (21,2) node[op amp] (opamp) {}
+						(opamp.-) to [short, -*] (19.5,2.5)
+						(opamp.+) to [short] (19.5,1.5)
+							to [short, -*] (19.5,0)
+						(opamp.out) to [short, -*] (22.5,2)
+							to [short, -o] (24,2);
+					\draw (24,0) to [open, v<=$v_o$] (24,2);
+				\end{circuitikz}
+			}
+		\end{figure}
+
 	}
 	
 	%Part b
