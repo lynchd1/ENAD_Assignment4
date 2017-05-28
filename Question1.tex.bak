@@ -12,10 +12,10 @@
 \def \Athree{2}
 
 %Final A Matrix
-\def \Aoneone{457 		\times 10^{-6}}
-\def \Aonetwo{22.885	\times 10^{-3}}
-\def \Atwoone{457		\times 10^{-12}}
-\def \Atwotwo{22.885 	\times 10^{-9}}
+\def \Aoneone{542.7		\times 10^{-6}}
+\def \Aonetwo{27.135	\times 10^{-3}}
+\def \Atwoone{542.7		\times 10^{-12}}
+\def \Atwotwo{27.1350 	\times 10^{-6}}
 
 \def \Gtot{1.8496 \times 10^3}
 
@@ -107,7 +107,7 @@
 	\frac{1}{(\Athree) (\Rithree) }	& -\frac{\Rothree}{(\Athree) (\Rithree)}
 	\end{matrix}  \right] 
 	\\
-	A &= A_1 A_2 A_3
+	A &= \mathbf{A_1 A_2 A_3} \text{ (Bold indicating no minus signs on }A_{i_j{2}})
 	\\
 	&= \left[ \begin{matrix}
 	\Aoneone 			& -\Aonetwo \; \Omega \\ 
