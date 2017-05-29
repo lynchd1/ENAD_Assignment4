@@ -15,9 +15,9 @@
 \def \Aoneone{542.7		\times 10^{-6}}
 \def \Aonetwo{27.135	\times 10^{-3}}
 \def \Atwoone{542.7		\times 10^{-12}}
-\def \Atwotwo{27.1350 	\times 10^{-6}}
+\def \Atwotwo{27.135 	\times 10^{-9}}
 
-\def \Gtot{2.0056 \times 10^3}
+\def \Gtot{1559.9}
 
 \begin{enumerate}
 	
@@ -80,9 +80,10 @@
 	Therefore, the $A$ matrix of this voltage amplifier model is:
 	$$ A = 
 	\left[ \begin{matrix}
-	\frac{1}{A_{voc}} 		& -\frac{R_o}{A_{voc}} \\[6pt] 
-	\frac{1}{A_{voc}R_i}	& -\frac{R_o}{A_{voc}R_i}
+	\frac{1}{A_{voc}} 		& \frac{R_o}{A_{voc}} \, \Omega \\[6pt] 
+	\frac{1}{A_{voc}R_i} \, \mho	& \frac{R_o}{A_{voc}R_i}
 	\end{matrix}  \right] $$
+	\\
 	
 	%Part b
 	\item{
@@ -91,33 +92,34 @@
 	source impedance.\\
 	To find the $A$ parameter matrix of the single two port network, first 
 	find the $A$ parameter matrices of each amplifier stage and matrix 
-	multiply them together to.
+	multiply them together.
 	
 	\begin{align*}
 	A_1 &= 
 	\left[ \begin{matrix}
-	\frac{1}{\Aone} 			& -\frac{\Roone}{\Aone} \\[6pt] 
-	\frac{1}{(\Aone) (\Rione) }	& -\frac{\Roone}{(\Aone) (\Rione)}
+	\frac{1}{\Aone} 			& \frac{\Roone}{\Aone} \\[6pt] 
+	\frac{1}{(\Aone) (\Rione) }	& \frac{\Roone}{(\Aone) (\Rione)}
 	\end{matrix}  \right] 
 	\\
 	A_2 &= 
 	\left[ \begin{matrix}
-	\frac{1}{\Atwo} 			& -\frac{\Rotwo}{\Atwo} \\[6pt] 
-	\frac{1}{(\Atwo) (\Ritwo) }	& -\frac{\Rotwo}{(\Atwo) (\Ritwo)}
+	\frac{1}{\Atwo} 			& \frac{\Rotwo}{\Atwo} \\[6pt] 
+	\frac{1}{(\Atwo) (\Ritwo) }	& \frac{\Rotwo}{(\Atwo) (\Ritwo)}
 	\end{matrix}  \right] 
 	\\
 	A_3 &= 
 	\left[ \begin{matrix}
-	\frac{1}{\Athree} 				& -\frac{\Rothree}{\Athree} \\[6pt] 
-	\frac{1}{(\Athree) (\Rithree) }	& -\frac{\Rothree}{(\Athree) (\Rithree)}
+	\frac{1}{\Athree} 				& \frac{\Rothree}{\Athree} \\[6pt] 
+	\frac{1}{(\Athree) (\Rithree) }	& \frac{\Rothree}{(\Athree) (\Rithree)}
 	\end{matrix}  \right] 
 	\\
-	A &= \mathbf{A_1 A_2 A_3} \text{ (Bold indicating no minus signs on }A_{i_{j2}})
+	\\
+	A &= A_1 A_2 A_3
 	\\
 	&= \left[ \begin{matrix}
-	\Aoneone 			& -\Aonetwo \; \Omega \\ 
-	\Atwoone \; \mho \	& -\Atwotwo
-	\end{matrix}  \right] \text{ (minus signs added back in)}
+	\Aoneone 			& \Aonetwo \; \Omega \\ 
+	\Atwoone \; \mho \	& \Atwotwo
+	\end{matrix}  \right]
 	\end{align*}
 	
 	Now the circuit can be modelled like this:
@@ -130,7 +132,7 @@
 	
 	Using Table 18.2 from the formula sheet, the formula
 	
-	$$ \frac{V_2}{V_g} = \frac{\mathbf{Z}_L}{(a_{11} + a_{21}\mathbf{Z}_g)\mathbf{Z}_L + a_{12} + a_{22}\mathbf{Z}_g} $$
+	$$ \frac{V_2}{V_g} = \frac{Z_L}{(a_{11} + a_{21}Z_g)Z_L + a_{12} + a_{22}Z_g} $$
 	can be used here.
 	
 	\begin{align*}
@@ -139,8 +141,9 @@
 	&= \frac{R_L}{(a_{11} + a_{21}R_s)R_L + a_{12} + a_{22}R_s}
 	\\
 	&= \frac{\RL}{(\Aoneone + (\Atwoone)(\Rs))(\RL) + \Aonetwo + (\Atwotwo)(\Rs)}
+	\\ \\
+	&= \Gtot \, \text{V/V}
 	\\
-	&= \Gtot
 	\end{align*}
 	
 	}
