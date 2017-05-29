@@ -176,3 +176,6 @@ TSWLatexianTemp*
 *.m~
 *.asv
 
+# ignore original files before merge (when fast-forward cannot be performed)
+*.orig
+
